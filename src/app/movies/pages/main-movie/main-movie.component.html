@@ -1,0 +1,17 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="max-w-fit mx-auto px-1 py-16 justify-content-center" [formGroup]="orderByForm">
+  <form class="max-w-sm mx-auto">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Order by:</label>
+    <select formControlName="orderBy" (change)="orderMovies()" id="countries" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-50 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+      <option value="title">Title</option>
+      <option value="date">Release Date</option>
+      <option value="none">random</option>
+    </select>
+  </form>
+    <div class="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+        <app-movie-card *ngFor="let movie of movies;" [movie]="movie"></app-movie-card>
+    </div>
+</div>
+

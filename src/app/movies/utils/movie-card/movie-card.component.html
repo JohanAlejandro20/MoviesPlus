@@ -1,0 +1,57 @@
+<div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 mt-2">
+    <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-full">
+        <img
+                [src]="movie.image"
+                (click)="goToMovieDetail(movie.id)"
+                alt="card-image" class="object-cover w-full h-full"/>
+    </div>
+    <div class="p-6">
+        <div class="flex items-center justify-between mb-2">
+            <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+                {{movie.title}}
+            </p>
+        </div>
+        <p class="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
+            {{movie.description}}
+        </p>
+
+        <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+            <a class="underline decoration-sky-500">Rating: </a> {{movie.rating}}
+        </p>
+        <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+            <a class="underline decoration-sky-500">Duration: </a> {{movie.duration}}
+        </p>
+      <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+        <a class="underline decoration-sky-500">Released-Date: </a> {{movie.releasedDate |date:"medium"}}
+      </p>
+
+    </div>
+    <div class="p-6 pt-0">
+        <button class="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-3
+            px-6 rounded-lg hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85]
+            active:shadow-none block w-full bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105
+            hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100" (click)="goToMovieDetail(movie.id)" type="button" >
+
+            Read more
+        </button>
+
+        <div *ngIf="!isOnWatchlist">
+            <button  class="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-3
+            px-6 rounded-lg hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85]
+            active:shadow-none block w-full bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105
+            hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"  (click)="saveMovieWatchList(movie)" type="button">
+                add to your watch list
+
+            </button>
+        </div>
+
+
+        <button *ngIf="isOnWatchlist && !watchListPage"  class="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-3
+            px-6 rounded-lg hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85]
+            active:shadow-none block w-full bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105
+            hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100" (click)="deleteMovieWatchList(movie)" type="button">
+            delet of your watchlist
+        </button>
+
+    </div>
+</div>
