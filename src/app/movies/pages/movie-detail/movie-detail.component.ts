@@ -1,7 +1,7 @@
 import {AfterContentInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {MovieService} from "../../services/movie.service";
-import {MovieModel} from "../../modules/MovieModel";
+import {MovieModel} from "../../models/MovieModel";
 
 
 @Component({
@@ -12,7 +12,6 @@ import {MovieModel} from "../../modules/MovieModel";
 export class MovieDetailComponent implements OnInit, AfterContentInit {
 
     movie!: MovieModel;
-    movieWatchList!: MovieModel[];
     isOnWatchlist = false;
 
     constructor(
@@ -34,7 +33,6 @@ export class MovieDetailComponent implements OnInit, AfterContentInit {
 
     saveMovieWatchList(movie: MovieModel) {
         this.movieService.saveMovieWatchList(movie);
-        this.movieWatchList = this.movieService.getAllMoviesWatchList();
         this.validWatchlist(movie);
     }
 
@@ -42,9 +40,8 @@ export class MovieDetailComponent implements OnInit, AfterContentInit {
         this.isOnWatchlist = this.movieService.validMovieWatchlist(movie);
     }
 
-    deleteWatchList(movie: MovieModel) {
+    deleteMovieWatchList(movie: MovieModel) {
         this.movieService.deleteMovieWatchList(movie);
-        this.movieWatchList = this.movieService.getAllMoviesWatchList();
         this.validWatchlist(movie);
 
     }

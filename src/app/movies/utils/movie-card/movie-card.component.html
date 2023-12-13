@@ -1,4 +1,4 @@
-<div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 mt-2">
+<div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-80 mt-2">
     <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-full">
         <img
                 [src]="movie.image"
@@ -35,7 +35,7 @@
             Read more
         </button>
 
-        <div *ngIf="!isOnWatchlist">
+        <div *ngIf="!isOnWatchListMovie">
             <button  class="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-3
             px-6 rounded-lg hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85]
             active:shadow-none block w-full bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105
@@ -46,11 +46,11 @@
         </div>
 
 
-        <button *ngIf="isOnWatchlist && !watchListPage"  class="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-3
+        <button *ngIf="isOnWatchListMovie && !IsOnWatchListPage"  class="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-3
             px-6 rounded-lg hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85]
             active:shadow-none block w-full bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105
             hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100" (click)="deleteMovieWatchList(movie)" type="button">
-            delet of your watchlist
+            remove of your watchlist
         </button>
 
     </div>

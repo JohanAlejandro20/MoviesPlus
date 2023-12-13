@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from "../../services/movie.service";
-import {MovieModel} from "../../modules/MovieModel";
+import {MovieModel} from "../../models/MovieModel";
 
 @Component({
   selector: 'app-watchlist',
@@ -10,19 +10,19 @@ import {MovieModel} from "../../modules/MovieModel";
 export class WatchlistComponent implements OnInit{
 
 
-  watchList!: MovieModel[]
-  watchListPage = true;
+  moviesWatchList!: MovieModel[]
+  IsOnWatchListPage = true;
 
   constructor(private movieService: MovieService) {
   }
 
   ngOnInit(): void {
-    this.watchList = this.movieService.getAllMoviesWatchList();
+    this.moviesWatchList = this.movieService.getAllMoviesWatchList();
   }
 
   deleteWatchList(){
     this.movieService.deleteWatchList();
-    this.watchList = this.movieService.getAllMoviesWatchList();
+    this.moviesWatchList = this.movieService.getAllMoviesWatchList();
   }
 
 }

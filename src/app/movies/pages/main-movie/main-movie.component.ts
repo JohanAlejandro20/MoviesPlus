@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from "../../services/movie.service";
-import {MovieModel} from "../../modules/MovieModel";
+import {MovieModel} from "../../models/MovieModel";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
